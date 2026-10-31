@@ -2,7 +2,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css"></link>
-        <script type="text/javascript" src="index.js"></script>
+
         <title>Dilute's Portfolio</title>
     </head>
     <body>
@@ -87,8 +87,39 @@
                         <img class="chemical_mc_gallery_img" src="res/images/ChemicalMC/2.png" alt="ChemicalMC Image 2">
                     </div>
                 </li>
+                <li class="project">
+                    <div class="flex_hori">
+                        <button type="button"
+                            class="project_dropdown_button"
+                            onclick="toggle_hide('portfolio_mc_drop', 'portfolio_gallery_img')">&#9660</button>
+                        <h3 class="project_heading">This Portfolio</h3>
+                    </div>
+                    <div id="portfolio_mc_drop">
+                            <p class="project_paragraph">
+                                This project is what you are currently looking at: my portfolio. This was a great experience to brush up on my web development skills.
+                            </p>
+                        <h3 class="project_subheading">Links</h3>
+                            <p class="sublink">
+                                GitHub: 
+                                <a href="https://github.com/DiluteDeveloper/Portfolio">
+                                     https://github.com/DiluteDeveloper/Portfolio
+                                </a>
+                            </p>
+                            <p class="sublink">
+                                Website: 
+                                <a href="https://dilutedeveloper.github.io/Portfolio/">
+                                    https://dilutedeveloper.github.io/Portfolio/
+                                </a>
+                            </p>
+                        <h3 class="project_heading">Gallery</h3>
+                    </div>
+                    <div class="gallery">
+                        <img class="portfolio_gallery_img" src="res/images/Portfolio/Portfolio_4.png" alt="Portfolio Image 1">
+                    </div>
+                </li>
             </ul>
         </div>
 
+        <script type="text/javascript" src="index.js"></script>
     </body>
 </html>

@@ -1,0 +1,91 @@
+html, body {
+    --background-color: #442222;
+    --text-color: AliceBlue;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Consolas', monospace;
+    line-height: 1.5;
+}
+#main_heading {
+    font-weight: bold;
+}
+#main_heading, .secondary_heading {
+    margin: 0px 0px 5px 0px;
+    padding: 10px 10px 10px 10px;
+}
+.secondary_heading {
+    font-weight: normal;
+}
+.sub {
+    background-color: color-mix(in srgb, var(--background-color), black 10%);
+    border-bottom: 2px solid color-mix(in srgb, var(--background-color), black 30%);
+    border-top: 2px solid color-mix(in srgb, var(--background-color), black 30%);
+    margin-bottom: 10px;
+}
+#project_list {
+    list-style-type: none;
+    list-style-position: outside;
+
+    /* top right bottom left */
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 10px 0px;
+}
+.flex_hori {
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+.project_dropdown_button {
+
+    border: none;
+    color: #FFFF00;
+    background-color: color-mix(in srgb, var(--background-color), black 20%);
+
+    margin: 0px 10px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.project_subheading, .project_heading {
+    margin: 0px 0px 0px 0px;
+    font-weight: normal;
+    padding: 5px 0px 5px 0px;
+    font-style: italic;
+}
+.gallery {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 20px 0px 0px;
+    gap: 8px;
+}
+.sublink a:link {
+    color: DodgerBlue; 
+}
+.sublink a:visited {
+    color: MediumOrchid; 
+}
+.project {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid color-mix(in srgb, var(--background-color), black 40%);
+    border-top: 2px solid color-mix(in srgb, var(--background-color), black 40%);
+    background-color: color-mix(in srgb, var(--background-color), black 20%);
+}
+p, .sublink {
+    padding-left: 20px;
+    max-width: 100ch;
+}
+.sublink {
+    font-style: italic;
+}
+img {
+    width:50%;
+    height:auto;
+}

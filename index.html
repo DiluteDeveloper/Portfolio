@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css"></link>
+        <script type="text/javascript" src="index.js"></script>
+        <title>Dilute's Portfolio</title>
+    </head>
+    <body>
+        <h1 id="main_heading">Dilute's Portfolio</h1>
+        <div class="sub">
+            <h2 class="secondary_heading">About Me</h2>
+            <p>
+                Hi, my online alias is Dilute, and I'm from Queensland, Australia (I keep my real name off the internet when possible for privacy reasons). I've been developing software as
+                a hobby for around eight years. I'm currently in my third year of a bachelor degree of Information and Communication Technology and working as a research assistant; I
+                often perform software development at work.
+            </p>
+        </div>
+
+
+        <div class="sub">
+            <h2 class="secondary_heading">Projects</h2>
+            <ul id="project_list">
+                <li class="project">
+                    <div class="flex_hori">
+                        <button type="button"
+                            class="project_dropdown_button"
+                            onclick="toggle_hide('chemical_mc_drop', 'chemical_mc_gallery_img')">&#9660</button>
+                        <h3 class="project_heading">Chemical (Minecraft
+                            Clone)</h3>
+                    </div>
+                    <div id="chemical_mc_drop">
+                            <p class="project_paragraph">
+                                Chemical (Minecraft Clone) is a project that started development roughly two years ago. I've recently adapted it to run on the web and am currently
+                                actively developing it. It uses Emscripten to compile to WebAssembly and CMake for the build. It is written in C++ and uses OpenGL 3.0 for rendering. There
+                                are currently a few obvious bugs that I'm working on fixing.
+                            </p>
+                        <h3 class="project_subheading">Challenges</h3>
+                            <p class="project_paragraph">
+                                The project is in its early stages, but the main problem faced was how to store block geometry data efficiently. Think about it: <br><br>Each 16x16 chunk has
+                                a surface area of 256 blocks, for flat normals, each face has 6 vertices, and each vertical column on that surface area might have 3 faces.
+                                This gives us 256*3*6=4608 vertices per chunk, where each vertex may need to represent a 3D position, a face normal
+                                direction, and UV coordinates, generally speaking that is 32 bytes of data per vertex.<br> To render a 16x16 chunk grid like this, we would need to process a
+                                whopping 256*3*6*32*16*16=37MB of block data on the CPU and the GPU needs to process that data every frame. This is a simplified example and it's 150MB for a 32x32 chunk grid.
+                                <br><br>
+                                Instead of doing this, I opted to store block type, position within chunk, and face orientation in a single 4-byte/32-bit integer for each face as a bitmask. This
+                                is the layout:<br><br>
+                                5,5,5,5 5,5,5,5 5,5,4,4 4,4,4,3 3,3,3,3 3,3,3,3 2,2,2,2 2,1,1,1<br><br>
+
+                                Where:<br>
+                                5 = Block type bits<br>
+                                4 = X position within chunk bits<br>
+                                3 = Z position within chunk bits<br>
+                                2 = Z position within chunk bits<br>
+                                1 = face orientation bits ( <br>
+                                    000 = Top face encoding<br>
+                                    001 = Bottom face encoding<br>
+                                    010 = Right face encoding<br>
+                                    011 = Left face encoding<br>
+                                    100 = Front face encoding<br>
+                                    101 = Back face encoding<br>
+                                    110 = Unused<br>
+                                    111 = Unused<br>
+                                )<br><br>
+
+                                Essentially, different
+                                bits represent different data about the block and face, and the GPU, which by design, has much greater parallel processing capability than the CPU, has the
+                                job of turning this data into vertices, instead of the CPU.<br> Compared to 37MB in the example earlier, this is now 786KB of vertex data sent to the GPU, a 46x decrease in the amount of vertex data that the CPU needs to process and send to
+                                the GPU! Transmitting data from CPU to GPU is also very slow so this is a massive win for performance.
+                            </p>
+                        <h3 class="project_subheading">Links</h3>
+                            <p class="sublink">
+                                GitHub: 
+                                <a href="https://github.com/DiluteDeveloper/Chemical/tree/ChemicalMC">
+                                    https://github.com/DiluteDeveloper/Chemical/tree/ChemicalMC
+                                </a>
+                            </p>
+                            <p class="sublink">
+                                Web Demo: 
+                                <a href="https://dilutedeveloper.github.io/Chemical/">
+                                    https://dilutedeveloper.github.io/Chemical/
+                                </a>
+                            </p>
+                        <h3 class="project_heading">Gallery</h3>
+                    </div>
+                    <div class="gallery">
+                        <img class="chemical_mc_gallery_img" src="res/images/ChemicalMC/1.png" alt="ChemicalMC Image 1">
+                        <img class="chemical_mc_gallery_img" src="res/images/ChemicalMC/2.png" alt="ChemicalMC Image 2">
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

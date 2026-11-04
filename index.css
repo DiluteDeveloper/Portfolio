@@ -59,7 +59,8 @@ html, body {
 }
 .gallery {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+    /* grid-template-columns: repeat(2, 1fr); */
     margin: 10px 20px 0px 0px;
     gap: 8px;
 }
@@ -86,6 +87,10 @@ p, .sublink {
     font-style: italic;
 }
 img {
+    width:50%;
+    height:auto;
+}
+video {
     width:50%;
     height:auto;
 }

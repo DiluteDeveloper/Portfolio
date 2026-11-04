@@ -24,13 +24,63 @@
                     <div class="flex_hori">
                         <button type="button"
                             class="project_dropdown_button"
+                            onclick="toggle_hide_video('visualizer_drop', 'visualizer_gallery_video')">&#9660</button>
+                        <h3 class="project_heading">SortingAlgorithmVisualizer</h3>
+                    </div>
+                    <div id="visualizer_drop">
+                            <p class="project_paragraph">
+                                This is a visualizer for various sorting algorithms that I created about about four years ago, 
+                                but I recently adapted it to run on the web.
+                                It uses Emscripten to compile to WebAssembly and CMake for the build. It is written in
+                                C++ and uses OpenGL 3.0 for rendering. 
+
+                            </p>
+
+                        <h3 class="project_subheading">Challenges</h3>
+                            <p class="project_paragraph">
+                                The most challenging part of this project would probably have been trying to code
+                                these sorting algorithms in a way that rendering can occur in between each individual
+                                swap operation. Trying to run one iteration of the algorithm at a time definitely changes
+                                how you need to think about it, but if I get a chance to remake this today, I'd probably
+                                consider precomputing it instead and just storing the operations and playing them back.
+                            </p>
+                        <h3 class="project_subheading">Links</h3>
+                            <p class="sublink">
+                                GitHub: 
+                                <a href="https://github.com/DiluteDeveloper/SortingAlgorithmVisualizer">
+                                    https://github.com/DiluteDeveloper/SortingAlgorithmVisualizer
+                                </a>
+                            </p>
+                            <p class="sublink">
+                                Web Demo: 
+                                <a href="https://dilutedeveloper.github.io/SortingAlgorithmVisualizer/">
+                                    https://dilutedeveloper.github.io/SortingAlgorithmVisualizer/
+                                </a>
+                            </p>
+                        <h3 class="project_heading">Gallery</h3>
+                    </div>
+                    <div class="gallery">
+                        <video class="visualizer_gallery_video" width="1920" height="1080" autoplay muted loop playsinline>
+                            <source src="res/videos/SortingAlgorithmVisualizer/BubbleSort.mp4" type="video/mp4"></video>
+                        <video class="visualizer_gallery_video" width="1920" height="1080" autoplay muted loop playsinline>
+                            <source src="res/videos/SortingAlgorithmVisualizer/InsertionSort.mp4" type="video/mp4"></video>
+                        <video class="visualizer_gallery_video" width="1920" height="1080" autoplay muted loop playsinline>
+                            <source src="res/videos/SortingAlgorithmVisualizer/GnomeSort.mp4" type="video/mp4"></video>
+                        <video class="visualizer_gallery_video" width="1920" height="1080" autoplay muted loop playsinline>
+                            <source src="res/videos/SortingAlgorithmVisualizer/CycleSort.mp4" type="video/mp4"></video>
+                    </div>
+                </li>
+                <li class="project">
+                    <div class="flex_hori">
+                        <button type="button"
+                            class="project_dropdown_button"
                             onclick="toggle_hide('chemical_mc_drop', 'chemical_mc_gallery_img')">&#9660</button>
                         <h3 class="project_heading">Chemical (Minecraft
                             Clone)</h3>
                     </div>
                     <div id="chemical_mc_drop">
                             <p class="project_paragraph">
-                                Chemical (Minecraft Clone) is a project that started development roughly two years ago. I've recently adapted it to run on the web and am currently
+                                Chemical (Minecraft Clone) is a Minecraft clone I created that started development roughly two years ago. I've recently adapted it to run on the web and am currently
                                 actively developing it. It uses Emscripten to compile to WebAssembly and CMake for the build. It is written in C++ and uses OpenGL 3.0 for rendering. There
                                 are currently a few obvious bugs that I'm working on fixing.
                             </p>
@@ -117,6 +167,7 @@
                         <img class="portfolio_gallery_img" src="res/images/Portfolio/Portfolio_4.png" alt="Portfolio Image 1">
                     </div>
                 </li>
+
             </ul>
         </div>
 
